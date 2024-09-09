@@ -1,13 +1,8 @@
-const path=require('path')
+
 const express=require('express');
-const rootD=require('../util/path');
-console.log(rootD);
+const contact=require('../controlers/contact')
 const routs=express.Router();
-routs.get('/',(req, res, next)=>{
-    res.sendFile(path.join(rootD, 'views','contact.html'));
-});
-routs.get('/success', (req, res, next) => {
-    res.sendFile(path.join(rootD, 'views', 'success.html'));
-});
+routs.get('/',contact.contact);
+routs.get('/success',contact.success);
 
 module.exports=routs;
